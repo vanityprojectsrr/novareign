@@ -1,1098 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Nova Reign — Music, visuals, stories, shows and experiences. Love Your Life. Build Your Legacy.">
-  <title>Nova Reign — Official Website</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nova Reign — Home</title>
+<style>
+:root{
+  --black:#080808;
+  --black2:#111111;
+  --ivory:#F7F4EE;
+  --gold:#C9A227;
+  --marble:#D9D5CE;
+  --pink:#FF2F92;
+  --white:#fff;
+  --line:rgba(201,162,39,.55);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;min-height:100%;background:#050505;color:var(--ivory);font-family:Arial,Helvetica,sans-serif}
+body{overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
 
-  <link rel="preload" as="image" href="./nova-reign-hero.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Italianno&display=swap" rel="stylesheet">
+/* THE SITE IS A SINGLE EDITORIAL CANVAS — BLOCKS FOLLOW THE REFERENCE */
+.site-shell{
+  width:min(1500px,96vw);
+  margin:18px auto;
+  background:var(--black);
+  border:1px solid rgba(201,162,39,.7);
+  box-shadow:0 0 0 1px rgba(255,255,255,.04),0 30px 90px rgba(0,0,0,.6);
+}
 
-  <style>
-    :root {
-      --black: #080808;
-      --ivory: #f7f4ee;
-      --gold: #c9a227;
-      --marble: #d9d5ce;
-      --fuchsia: #ff2f92;
-      --muted: rgba(247,244,238,.68);
-      --line: rgba(201,162,39,.28);
-      --max: 1440px;
-    }
+/* HEADER */
+.topbar{
+  height:74px;
+  display:grid;
+  grid-template-columns:270px 1fr 330px;
+  align-items:center;
+  padding:0 26px;
+  border-bottom:1px solid rgba(201,162,39,.55);
+  background:rgba(8,8,8,.96);
+  position:relative;
+  z-index:5;
+}
+.brand{display:flex;flex-direction:column;gap:2px}
+.brand-main{font-family:Georgia,'Times New Roman',serif;font-size:28px;letter-spacing:.04em;line-height:1;color:var(--ivory)}
+.brand-sub{font-size:7px;letter-spacing:.34em;color:var(--gold);margin-left:2px}
+.nav{display:flex;justify-content:center;gap:27px;font-size:9px;letter-spacing:.17em;color:#d0cbc2;text-transform:uppercase}
+.nav a{padding:8px 0;border-bottom:1px solid transparent}
+.nav a.active,.nav a:hover{color:var(--pink);border-color:var(--pink)}
+.top-right{display:flex;justify-content:flex-end;align-items:center;gap:18px;font-size:8px;letter-spacing:.18em;color:#bcb7af;text-transform:uppercase}
+.social{display:flex;gap:9px;color:var(--gold);font-weight:bold}
+.social span{width:15px;height:15px;border:1px solid rgba(201,162,39,.55);display:grid;place-items:center;font-size:7px}
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--black);
-      color: var(--ivory);
-      font-family: "DM Sans", Arial, sans-serif;
-      font-weight: 300;
-      overflow-x: hidden;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+/* HERO */
+.hero{
+  position:relative;
+  min-height:470px;
+  height:61vh;
+  max-height:680px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 22% 40%,rgba(201,162,39,.16),transparent 25%),
+    linear-gradient(110deg,#1a1714,#070707 56%,#15110e);
+  border-bottom:1px solid rgba(201,162,39,.7);
+}
+.hero-placeholder{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.05),rgba(0,0,0,.2) 48%,rgba(0,0,0,.7)),
+    repeating-linear-gradient(135deg,rgba(255,255,255,.025) 0 1px,transparent 1px 8px);
+}
+.hero-placeholder::before{
+  content:'PRIMARY HERO IMAGE';
+  position:absolute;left:5%;top:42%;
+  color:rgba(247,244,238,.25);font-size:10px;letter-spacing:.35em;
+}
+.hero-city{
+  position:absolute;right:0;top:0;width:58%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.035)),
+             repeating-linear-gradient(90deg,transparent 0 55px,rgba(201,162,39,.06) 56px 58px),
+             repeating-linear-gradient(0deg,transparent 0 70px,rgba(247,244,238,.04) 71px 73px);
+  opacity:.8;
+}
+.hero-copy{
+  position:absolute;right:7%;top:17%;width:min(48%,610px);text-align:center;
+  padding:24px 30px 28px;
+  background:linear-gradient(135deg,rgba(8,8,8,.88),rgba(8,8,8,.7));
+  border-left:1px solid var(--gold);
+  border-top:1px solid rgba(247,244,238,.18);
+  border-bottom:1px solid rgba(247,244,238,.12);
+}
+.eyebrow{font-size:8px;letter-spacing:.38em;color:var(--gold);text-transform:uppercase;margin-bottom:12px}
+.hero-title{font-family:Georgia,'Times New Roman',serif;font-size:clamp(55px,7vw,106px);line-height:.78;letter-spacing:-.055em;color:var(--gold);font-weight:400}
+.hero-title span{color:var(--ivory)}
+.script{font-family:cursive;font-style:italic;font-size:clamp(22px,3vw,42px);color:var(--pink);margin:8px 0 9px}
+.tagline{font-size:9px;letter-spacing:.45em;color:var(--ivory);margin-bottom:13px}
+.hero-links{font-size:8px;letter-spacing:.18em;color:#c5c0b8;margin-bottom:17px;text-transform:uppercase}
+.cta{display:inline-flex;align-items:center;gap:22px;padding:10px 19px;border:1px solid var(--gold);color:var(--ivory);font-size:8px;letter-spacing:.2em;text-transform:uppercase}
+.cta i{font-style:normal;color:var(--pink);font-size:13px}
+.hero-note{position:absolute;right:22px;top:44%;writing-mode:vertical-rl;font-size:7px;letter-spacing:.28em;color:#b8b2aa;text-transform:uppercase}
 
-    .site-nav {
-      position: fixed;
-      inset: 0 0 auto;
-      z-index: 1000;
-      height: 82px;
-      display: flex;
-      align-items: center;
-      padding: 0 4vw;
-      transition: .35s ease;
-      border-bottom: 1px solid transparent;
-    }
-    .site-nav.scrolled {
-      background: rgba(8,8,8,.94);
-      backdrop-filter: blur(16px);
-      border-color: var(--line);
-    }
-    .brand {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 28px;
-      font-weight: 600;
-      letter-spacing: .04em;
-      color: var(--gold);
-      white-space: nowrap;
-    }
-    .brand-mark { font-size: 15px; margin-right: 7px; vertical-align: 5px; }
-    .nav-links {
-      display: flex;
-      gap: clamp(18px, 2.2vw, 38px);
-      margin: 0 auto;
-      text-transform: uppercase;
-      font-size: 10px;
-      letter-spacing: .18em;
-    }
-    .nav-links a { opacity: .82; transition: .25s; }
-    .nav-links a:hover,
-    .nav-links a.active { color: var(--fuchsia); opacity: 1; }
+/* FIVE IMAGE / CONTENT BLOCKS */
+.tile-grid{display:grid;grid-template-columns:repeat(5,1fr);height:105px;border-bottom:1px solid var(--gold)}
+.tile{position:relative;overflow:hidden;border-right:1px solid var(--gold);background:#151515}
+.tile:last-child{border-right:0}
+.tile-bg{position:absolute;inset:0;background:linear-gradient(135deg,#222,#0b0b0b);}
+.tile:nth-child(2) .tile-bg{background:linear-gradient(135deg,#302c28,#0b0b0b)}
+.tile:nth-child(3) .tile-bg{background:linear-gradient(135deg,#151a25,#080808)}
+.tile:nth-child(4) .tile-bg{background:linear-gradient(135deg,#292624,#0a0a0a)}
+.tile:nth-child(5) .tile-bg{background:linear-gradient(135deg,#1b1b1b,#080808)}
+.tile-bg::after{content:'MEDIA';position:absolute;inset:0;display:grid;place-items:center;color:rgba(247,244,238,.11);font-size:8px;letter-spacing:.35em}
+.tile-overlay{position:absolute;inset:0;background:linear-gradient(transparent 25%,rgba(0,0,0,.85));}
+.tile-content{position:absolute;left:18px;right:12px;bottom:13px;z-index:2}
+.tile-title{font-family:Georgia,'Times New Roman',serif;font-size:16px;color:var(--ivory);letter-spacing:.03em}
+.tile-sub{font-size:6px;letter-spacing:.18em;color:#ddd6cc;text-transform:uppercase;margin-top:3px}
 
-    .nav-actions { display: flex; gap: 20px; align-items: center; }
-    .icon-btn {
-      border: 0;
-      background: transparent;
-      color: var(--ivory);
-      font-size: 18px;
-      cursor: pointer;
-      padding: 4px;
-    }
-    .menu-btn { display: none; }
+/* BOTTOM FEATURE ROW */
+.bottom-grid{display:grid;grid-template-columns:40% 35% 25%;min-height:120px;background:#090909}
+.bottom-block{position:relative;padding:20px 25px;border-right:1px solid var(--gold);overflow:hidden}
+.bottom-block:last-child{border-right:0}
+.section-label{font-size:7px;letter-spacing:.27em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+.release{display:grid;grid-template-columns:80px 1fr;gap:15px;align-items:center}
+.cover{height:72px;border:1px solid rgba(201,162,39,.55);background:linear-gradient(145deg,#2c0b20,#0b0b0b);display:grid;place-items:center;color:rgba(255,47,146,.65);font-family:Georgia,serif;font-size:10px;letter-spacing:.12em}
+.release h2{font-family:Georgia,'Times New Roman',serif;font-size:21px;font-weight:400;color:var(--ivory);margin-bottom:4px}
+.release p{font-size:7px;letter-spacing:.14em;color:#aaa49c;text-transform:uppercase}
+.play{position:absolute;right:18px;top:42px;width:28px;height:28px;border-radius:50%;border:1px solid var(--pink);display:grid;place-items:center;color:var(--pink);font-size:9px}
+.connect h2{font-family:Georgia,serif;font-size:20px;font-weight:400;color:var(--ivory);margin-bottom:5px}
+.connect p{font-size:7px;color:#aaa49c;margin-bottom:12px}
+.email{display:flex;max-width:270px;height:27px}
+.email input{flex:1;background:var(--ivory);border:0;padding:0 10px;font-size:8px;color:#111;outline:none}
+.email button{width:44px;border:0;background:var(--pink);color:#fff;font-size:12px}
+.signature{font-family:cursive;font-style:italic;color:var(--gold);font-size:25px;line-height:1.05;margin-top:5px}
+.signature span{display:block;font-size:10px;color:var(--ivory);font-family:Georgia,serif;letter-spacing:.18em;margin-top:5px}
 
-    .hero {
-      min-height: 100svh;
-      position: relative;
-      display: flex;
-      align-items: center;
-      background:
-        linear-gradient(90deg, rgba(8,8,8,.90) 0%, rgba(8,8,8,.54) 34%, rgba(8,8,8,.05) 64%, rgba(8,8,8,.24) 100%),
-        linear-gradient(0deg, rgba(8,8,8,.38), transparent 30%),
-        url("./nova-reign-hero.png") center center / cover no-repeat;
-      overflow: hidden;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 0;
-      height: 26%;
-      background: linear-gradient(transparent, var(--black));
-      pointer-events: none;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      width: min(520px, 36vw);
-      margin-left: -2vw;
-      padding-top: 0;
-      transform: translateY(-72px);
-    }
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--ivory);
-      font-size: 10px;
-      letter-spacing: .3em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-      white-space: nowrap;
-    }
-    .eyebrow::before {
-      content: "♛";
-      color: var(--gold);
-      font-size: 20px;
-      letter-spacing: 0;
-    }
-    h1 {
-      margin: 0;
-      font-family: "Cormorant Garamond", serif;
-      font-weight: 500;
-      font-size: clamp(70px, 7.7vw, 128px);
-      line-height: .72;
-      letter-spacing: -.055em;
-      color: var(--gold);
-      text-transform: uppercase;
-      text-shadow: 0 4px 28px rgba(0,0,0,.4);
-    }
-    .tagline {
-      margin: 26px 0 0;
-      font-family: "Italianno", cursive;
-      font-size: clamp(38px, 4vw, 62px);
-      line-height: .9;
-      color: var(--gold);
-      max-width: 520px;
-    }
-    .scroll-cue {
-      position: absolute;
-      z-index: 3;
-      left: 4.5vw;
-      bottom: 34px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      text-transform: uppercase;
-      font-size: 9px;
-      letter-spacing: .28em;
-      color: rgba(247,244,238,.72);
-    }
-    .scroll-line { width: 42px; height: 1px; background: var(--gold); }
+/* ivory is used as an intentional secondary surface, not as the whole page */
+.ivory-strip{display:none}
 
-    .intro-strip {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      background: #0d0d0d;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .intro-item {
-      min-height: 118px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 7px;
-      border-right: 1px solid var(--line);
-      text-align: center;
-    }
-    .intro-item:last-child { border-right: 0; }
-    .intro-item strong {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 19px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-    .intro-item span {
-      font-size: 9px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    section { padding: 110px 6vw; }
-    .section-kicker {
-      color: var(--fuchsia);
-      text-transform: uppercase;
-      letter-spacing: .28em;
-      font-size: 9px;
-      margin-bottom: 12px;
-    }
-    .section-title {
-      margin: 0;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(48px, 6vw, 86px);
-      line-height: .9;
-      font-weight: 500;
-      color: var(--ivory);
-    }
-    .gold { color: var(--gold); }
-
-    .release {
-      background:
-        radial-gradient(circle at 15% 50%, rgba(255,47,146,.08), transparent 26%),
-        #080808;
-      color: var(--ivory);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-    .release-grid {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.08fr .92fr;
-      gap: 7vw;
-      align-items: center;
-    }
-    .release-art {
-      position: relative;
-      width: min(100%, 560px);
-      justify-self: center;
-      box-shadow: 22px 22px 0 rgba(201,162,39,.13);
-    }
-    .release-art::before {
-      content: "";
-      position: absolute;
-      inset: -12px 12px 12px -12px;
-      border: 1px solid rgba(201,162,39,.45);
-      pointer-events: none;
-    }
-    .release-art img {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-      position: relative;
-      z-index: 1;
-    }
-    .release-copy .section-kicker { color: var(--fuchsia); }
-    .release-artist {
-      margin-top: 12px;
-      color: var(--gold);
-      font-family: "DM Sans", Arial, sans-serif;
-      font-size: 11px;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-    }
-    .release-copy p {
-      max-width: 560px;
-      line-height: 1.85;
-      color: var(--muted);
-      font-size: 15px;
-      margin: 28px 0;
-    }
-    .platforms {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px 22px;
-      margin: 24px 0 30px;
-      color: rgba(247,244,238,.62);
-      text-transform: uppercase;
-      letter-spacing: .14em;
-      font-size: 8px;
-    }
-    .platforms span::before {
-      content: "•";
-      color: var(--fuchsia);
-      margin-right: 8px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 18px;
-      border: 1px solid currentColor;
-      padding: 15px 23px;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      font-size: 9px;
-      transition: .25s ease;
-    }
-    .btn:hover { background: var(--fuchsia); border-color: var(--fuchsia); color: #fff; }
-
-    .music-intro {
-      max-width: 520px;
-      margin: 18px 0 45px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.75;
-    }
-    .release-pair {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: clamp(24px, 4vw, 60px);
-    }
-    .music-release { min-width: 0; }
-    .music-cover {
-      display: block;
-      position: relative;
-      overflow: hidden;
-      background: #111;
-      aspect-ratio: 1 / 1;
-      border: 1px solid rgba(201,162,39,.2);
-    }
-    .music-cover::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(0deg, rgba(8,8,8,.52), transparent 42%);
-      pointer-events: none;
-    }
-    .music-cover img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform .7s ease, filter .5s ease;
-    }
-    .music-cover:hover img {
-      transform: scale(1.035);
-      filter: saturate(1.08);
-    }
-    .cover-hover {
-      position: absolute;
-      z-index: 2;
-      left: 24px;
-      bottom: 22px;
-      padding: 12px 16px;
-      border: 1px solid rgba(247,244,238,.7);
-      background: rgba(8,8,8,.58);
-      backdrop-filter: blur(8px);
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      font-size: 8px;
-      opacity: 0;
-      transform: translateY(8px);
-      transition: .3s ease;
-    }
-    .music-cover:hover .cover-hover {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .cover-hover b {
-      color: var(--gold);
-      font-size: 13px;
-      margin-left: 12px;
-    }
-    .music-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 18px 2px 0;
-    }
-    .music-type {
-      color: var(--fuchsia);
-      text-transform: uppercase;
-      letter-spacing: .22em;
-      font-size: 8px;
-      margin-bottom: 6px;
-    }
-    .music-meta h3 {
-      margin: 0;
-      font-family: "Cormorant Garamond", serif;
-      font-size: 34px;
-      font-weight: 500;
-    }
-    .music-meta p {
-      margin: 3px 0 0;
-      color: var(--muted);
-      font-size: 10px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-    .music-arrow {
-      color: var(--gold);
-      font-size: 24px;
-      transition: .25s;
-    }
-    .music-arrow:hover { color: var(--fuchsia); transform: translate(3px,-3px); }
-
-    .world {
-      background:
-        radial-gradient(circle at 80% 30%, rgba(201,162,39,.08), transparent 25%),
-        #0b0b0b;
-    }
-    .world-intro {
-      max-width: 780px;
-      margin-bottom: 50px;
-    }
-    .world-intro p {
-      color: var(--muted);
-      line-height: 1.8;
-      max-width: 650px;
-    }
-    .world-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 3px;
-    }
-    .world-card {
-      min-height: 360px;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      position: relative;
-      overflow: hidden;
-      background: #090909;
-      border: 1px solid rgba(201,162,39,.18);
-      transition: .35s ease;
-      isolation: isolate;
-    }
-    .world-card .world-image {
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      background-size: cover;
-      background-position: center;
-      filter: brightness(.28) saturate(.72);
-      transform: scale(1.02);
-      transition: filter .55s ease, transform .7s ease;
-    }
-    .world-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background:
-        linear-gradient(180deg, rgba(5,5,5,.16) 0%, rgba(5,5,5,.36) 45%, rgba(5,5,5,.92) 100%);
-      transition: background .45s ease;
-    }
-    .world-card--music .world-image {
-      background-image: url("./music-world.png");
-      background-position: center;
-    }
-    .world-card--lifestyle .world-image {
-      background-image: url("./lifestyle-world.png");
-      background-position: center;
-    }
-    .world-card--meta .world-image {
-      background-image: url("./meta-baddies-world.png");
-      background-position: center;
-    }
-    .world-card--vorthx .world-image {
-      background-image: url("./vorthx-world.png");
-      background-position: center;
-    }
-    .world-card:hover {
-      border-color: var(--fuchsia);
-      transform: translateY(-5px);
-    }
-    .world-card:hover .world-image {
-      filter: brightness(.82) saturate(1.05);
-      transform: scale(1.07);
-    }
-    .world-card:hover::after {
-      background:
-        linear-gradient(180deg, rgba(5,5,5,.03) 0%, rgba(5,5,5,.16) 42%, rgba(5,5,5,.76) 100%);
-    }
-    .world-card .number {
-      position: absolute;
-      top: 25px;
-      right: 25px;
-      color: var(--gold);
-      font-size: 10px;
-      letter-spacing: .15em;
-    }
-    .world-card h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 42px;
-      margin: 0 0 7px;
-    }
-    .world-card .world-content {
-      position: relative;
-      z-index: 2;
-    }
-    .world-card p {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.6;
-      margin: 0;
-    }
-    .world-explore {
-      display: inline-block;
-      margin-top: 16px;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      font-size: 8px;
-      opacity: 0;
-      transform: translateY(7px);
-      transition: .3s ease;
-    }
-    .world-explore b {
-      margin-left: 8px;
-      font-size: 13px;
-    }
-    .world-card:hover .world-explore {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .about {
-      background: var(--marble);
-      color: var(--black);
-    }
-    .about-grid {
-      max-width: var(--max);
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: .8fr 1.2fr;
-      gap: 8vw;
-      align-items: center;
-    }
-    .about-copy .section-title { color: var(--black); }
-    .about-copy p {
-      color: #44413c;
-      line-height: 1.85;
-      max-width: 650px;
-    }
-    .about-quote {
-      font-family: "Italianno", cursive;
-      color: var(--gold);
-      font-size: 50px;
-      line-height: .95;
-      margin-top: 28px;
-    }
-
-    .shows { background: #0b0b0b; }
-    .shows-intro {
-      max-width: 620px;
-      margin: 18px 0 46px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-    .production-list {
-      max-width: var(--max);
-      margin: 0 auto;
-    }
-    .production-row {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 34px;
-      padding: 42px 0;
-      border-top: 1px solid var(--line);
-    }
-    .production-row:last-child {
-      border-bottom: 1px solid var(--line);
-    }
-    .production-index {
-      font-family: "Cormorant Garamond", serif;
-      color: var(--gold);
-      font-size: 34px;
-      line-height: 1;
-    }
-    .production-copy {
-      max-width: 820px;
-    }
-    .production-copy .section-kicker {
-      margin-bottom: 10px;
-    }
-    .production-copy h3 {
-      margin: 0;
-      font-family: "Cormorant Garamond", serif;
-      font-size: clamp(42px, 5vw, 66px);
-      line-height: .9;
-      font-weight: 500;
-      text-transform: uppercase;
-    }
-    .production-copy h4 {
-      margin: 18px 0 12px;
-      font-size: 12px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--ivory);
-      font-weight: 500;
-    }
-    .production-copy p {
-      max-width: 720px;
-      margin: 0 0 24px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-    .production-link-label {
-      margin-bottom: 8px;
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: .15em;
-      font-size: 8px;
-    }
-    .production-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--ivory);
-      border-bottom: 1px solid rgba(247,244,238,.35);
-      padding-bottom: 6px;
-      text-transform: uppercase;
-      letter-spacing: .15em;
-      font-size: 9px;
-      transition: .25s ease;
-    }
-    .production-link span {
-      color: var(--fuchsia);
-      font-size: 14px;
-    }
-    .production-link:hover {
-      color: var(--gold);
-      border-color: var(--gold);
-    }
-
-    .gallery {
-      padding-bottom: 20px;
-      background: var(--black);
-    }
-    .gallery-head {
-      max-width: var(--max);
-      margin: 0 auto 42px;
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 20px;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr .8fr;
-      grid-auto-rows: 280px;
-      gap: 4px;
-      max-width: var(--max);
-      margin: auto;
-    }
-    .gallery-grid .g1 { grid-row: span 2; }
-    .gallery-grid .g4 { grid-column: span 2; }
-    .gallery-tile { overflow: hidden; background: #151515; }
-    .gallery-tile img {
-      width: 100%; height: 100%; object-fit: cover;
-      transition: .6s ease;
-      filter: saturate(.82);
-    }
-    .gallery-tile:hover img { transform: scale(1.04); filter: saturate(1); }
-
-    .connect {
-      background: var(--ivory);
-      color: var(--black);
-      text-align: center;
-      padding: 120px 6vw;
-    }
-    .connect .section-title { color: var(--black); }
-    .connect p { color: #555; }
-    .newsletter {
-      max-width: 640px;
-      margin: 38px auto 0;
-      display: flex;
-      border-bottom: 1px solid #777;
-    }
-    .newsletter input {
-      flex: 1;
-      border: 0;
-      background: transparent;
-      padding: 16px 4px;
-      outline: 0;
-      font: inherit;
-      color: var(--black);
-    }
-    .newsletter button {
-      border: 0;
-      background: var(--black);
-      color: var(--ivory);
-      padding: 0 28px;
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      font-size: 9px;
-      cursor: pointer;
-    }
-
-    footer {
-      padding: 60px 6vw 30px;
-      background: #050505;
-      border-top: 1px solid var(--line);
-    }
-    .footer-top {
-      max-width: var(--max);
-      margin: 0 auto 55px;
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-    }
-    .footer-brand {
-      font-family: "Cormorant Garamond", serif;
-      color: var(--gold);
-      font-size: 38px;
-    }
-    .footer-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      justify-content: flex-end;
-      color: var(--muted);
-      font-size: 10px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-    .footer-bottom {
-      max-width: var(--max);
-      margin: auto;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255,255,255,.1);
-      display: flex;
-      justify-content: space-between;
-      color: rgba(247,244,238,.4);
-      font-size: 9px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    @media (max-width: 980px) {
-      .nav-links { display: none; }
-      .menu-btn { display: block; }
-      .hero-content { width: 60vw; margin-left: 7vw; }
-      .world-grid { grid-template-columns: repeat(2, 1fr); }
-      .about-grid, .release-grid { grid-template-columns: 1fr; }
-      .show-row { grid-template-columns: 90px 1fr auto; }
-      .show-venue { display: none; }
-    }
-
-    @media (max-width: 700px) {
-      .site-nav { height: 70px; padding: 0 20px; }
-      .brand { font-size: 23px; }
-      .nav-actions { margin-left: auto; }
-      .hero {
-        min-height: 88svh;
-        background-position: 61% center;
-      }
-      .hero-content {
-        width: 92%;
-        margin: 0 auto;
-        align-self: flex-end;
-        padding: 0 0 105px;
-        transform: none;
-      }
-      .hero::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(0deg, rgba(8,8,8,.9) 0%, rgba(8,8,8,.2) 55%, rgba(8,8,8,.25) 100%);
-      }
-      .eyebrow { font-size: 8px; letter-spacing: .2em; }
-      h1 { font-size: clamp(68px, 20vw, 105px); }
-      .tagline { font-size: 40px; }
-      .scroll-cue { left: 20px; bottom: 22px; }
-
-      .intro-strip { grid-template-columns: repeat(2, 1fr); }
-      .intro-item { min-height: 90px; }
-      .intro-item:last-child { grid-column: span 2; border-top: 1px solid var(--line); }
-
-      section { padding: 78px 20px; }
-      .release-grid { gap: 45px; }
-      .release-art { box-shadow: 12px 12px 0 rgba(201,162,39,.14); }
-      .release-pair { grid-template-columns: 1fr; gap: 48px; }
-      .cover-hover { opacity: 1; transform: none; }
-      .world-grid { grid-template-columns: 1fr 1fr; }
-      .world-explore { opacity: 1; transform: none; }
-      .world-grid { grid-template-columns: 1fr; }
-      .world-card { min-height: 270px; }
-      .show-row { grid-template-columns: 76px 1fr auto; gap: 12px; }
-      .show-date { font-size: 24px; }
-      .gallery-head { display: block; }
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        grid-auto-rows: 210px;
-      }
-      .gallery-grid .g1 { grid-row: span 2; }
-      .gallery-grid .g4 { grid-column: span 2; }
-      .newsletter { display: block; border: 0; }
-      .newsletter input {
-        width: 100%;
-        border-bottom: 1px solid #777;
-        margin-bottom: 12px;
-      }
-      .newsletter button { min-height: 48px; width: 100%; }
-      .footer-top, .footer-bottom { display: block; }
-      .footer-links { justify-content: flex-start; margin-top: 25px; }
-      .footer-bottom > * { margin-top: 10px; }
-    }
-  </style>
+@media(max-width:900px){
+ .site-shell{width:100%;margin:0;border-left:0;border-right:0}
+ .topbar{grid-template-columns:1fr auto;height:auto;min-height:70px;padding:15px 18px}
+ .nav{display:none}.top-right{display:none}
+ .hero{height:620px;min-height:620px}
+ .hero-copy{left:6%;right:6%;width:auto;top:auto;bottom:30px}
+ .tile-grid{grid-template-columns:repeat(5,1fr);height:92px;overflow:auto}
+ .tile{min-width:170px}.tile-grid{display:flex}
+ .bottom-grid{grid-template-columns:1fr}.bottom-block{border-right:0;border-bottom:1px solid var(--gold)}
+}
+</style>
 </head>
-
 <body>
-
-  <nav class="site-nav" id="siteNav">
-    <a class="brand" href="#home"><span class="brand-mark">♛</span>NOVA REIGN</a>
-
-    <div class="nav-links">
+<main class="site-shell">
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-main">NOVA REIGN</span>
+      <span class="brand-sub">LOVE YOUR LIFE. BUILD YOUR LEGACY.</span>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
       <a class="active" href="#home">Home</a>
       <a href="#music">Music</a>
       <a href="#videos">Videos</a>
-      <a href="#shows">Shows</a>
       <a href="#about">About</a>
+      <a href="#shows">Shows</a>
       <a href="#gallery">Gallery</a>
       <a href="#shop">Shop</a>
-      <a href="#world">Nova World</a>
+      <a href="#fanclub">Fan Club</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="top-right">
+      <div class="social"><span>◎</span><span>f</span><span>▶</span><span>𝕏</span><span>◎</span></div>
+      <span>New York</span>
+      <b style="color:var(--pink)">●</b>
     </div>
+  </header>
 
-    <div class="nav-actions">
-      <button class="icon-btn" aria-label="Search">⌕</button>
-      <button class="icon-btn" aria-label="Shop">♧</button>
-      <button class="icon-btn menu-btn" aria-label="Menu">☰</button>
+  <section class="hero" id="home">
+    <div class="hero-placeholder"></div>
+    <div class="hero-city"></div>
+    <div class="hero-copy">
+      <div class="eyebrow">Welcome to</div>
+      <h1 class="hero-title">NOVA <span>REIGN</span></h1>
+      <div class="script">Nova World</div>
+      <div class="tagline">LOVE YOUR LIFE. BUILD YOUR LEGACY.</div>
+      <div class="hero-links">MUSIC &nbsp;|&nbsp; FASHION &nbsp;|&nbsp; LIFESTYLE &nbsp;|&nbsp; BUSINESS &nbsp;|&nbsp; FAMILY &nbsp;|&nbsp; A WHOLE WORLD</div>
+      <a class="cta" href="#music">ENTER NOVA'S WORLD <i>→</i></a>
     </div>
-  </nav>
+    <div class="hero-note">A NEW YORK NATIVE WITH A GLOBAL VISION</div>
+  </section>
 
-  <main>
+  <section class="tile-grid" aria-label="Nova World sections">
+    <a class="tile" href="#music"><div class="tile-bg"></div><div class="tile-overlay"></div><div class="tile-content"><div class="tile-title">MUSIC</div><div class="tile-sub">Stream Now →</div></div></a>
+    <a class="tile" href="#videos"><div class="tile-bg"></div><div class="tile-overlay"></div><div class="tile-content"><div class="tile-title">VIDEOS</div><div class="tile-sub">Watch Now →</div></div></a>
+    <a class="tile" href="#shows"><div class="tile-bg"></div><div class="tile-overlay"></div><div class="tile-content"><div class="tile-title">SHOWS</div><div class="tile-sub">Upcoming Dates →</div></div></a>
+    <a class="tile" href="#shop"><div class="tile-bg"></div><div class="tile-overlay"></div><div class="tile-content"><div class="tile-title">SHOP</div><div class="tile-sub">Exclusive Merch →</div></div></a>
+    <a class="tile" href="#lifestyle"><div class="tile-bg"></div><div class="tile-overlay"></div><div class="tile-content"><div class="tile-title">THE LIFESTYLE</div><div class="tile-sub">More Than Music →</div></div></a>
+  </section>
 
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <div class="eyebrow">Music • Lifestyle • Business • Family • You</div>
-        <h1>Nova<br>Reign</h1>
-        <div class="tagline">Love Your Life.<br>Build Your Legacy.</div>
+  <section class="bottom-grid">
+    <article class="bottom-block" id="music">
+      <div class="section-label">Featured Release</div>
+      <div class="release">
+        <div class="cover">COVER ART</div>
+        <div><h2>AFTER DARK</h2><p>Nova Reign · Featured Release</p></div>
       </div>
-
-      <div class="scroll-cue">
-        <span class="scroll-line"></span>
-        Scroll to explore
+      <div class="play">▶</div>
+    </article>
+    <article class="bottom-block" id="contact">
+      <div class="section-label">Stay Connected</div>
+      <div class="connect">
+        <h2>Stay Connected</h2>
+        <p>Get the latest music, updates, shows &amp; more.</p>
+        <form class="email" onsubmit="return false"><input aria-label="Email" placeholder="Enter your email"><button>→</button></form>
       </div>
-    </section>
-
-    <div class="intro-strip">
-      <a class="intro-item" href="#music"><strong>Music</strong><span>A Movement</span></a>
-      <a class="intro-item" href="#world"><strong>Lifestyle</strong><span>A Standard</span></a>
-      <a class="intro-item" href="#about"><strong>Business</strong><span>A Vision</span></a>
-      <a class="intro-item" href="#about"><strong>Family</strong><span>A Priority</span></a>
-      <a class="intro-item" href="#connect"><strong>You</strong><span>A Part of It</span></a>
-    </div>
-
-    <section class="release" id="music">
-      <div class="release-grid">
-        <div class="release-art">
-          <img src="./you-blow-my-mind-cover.png" alt="You Blow My Mind — Korin & Nova Reign">
-        </div>
-        <div class="release-copy">
-          <div class="section-kicker">Featured Release</div>
-          <h2 class="section-title">You Blow<br><span class="gold">My Mind</span></h2>
-          <div class="release-artist">Korin &amp; Nova Reign</div>
-          <p>
-            <strong>You Blow My Mind</strong> is a sultry collaboration between Korin and Nova Reign
-            about irresistible attraction, mutual desire, and the kind of chemistry that refuses to
-            leave your mind. Blending R&amp;B, Afrobeats and hip-hop energy, the track is playful,
-            intimate, confident, and unapologetically sensual.
-          </p>
-          <div class="platforms" aria-label="Streaming platforms">
-            <span>Spotify</span>
-            <span>Apple Music</span>
-            <span>YouTube</span>
-            <span>TIDAL</span>
-            <span>Amazon Music</span>
-          </div>
-          <a class="btn" href="#" aria-label="Listen to You Blow My Mind">Stream Now <span>→</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section id="videos">
-      <div class="section-kicker">Music</div>
-      <h2 class="section-title">Music in <span class="gold">Motion</span></h2>
-      <p class="music-intro">
-        Explore the sounds, stories, and worlds behind Nova Reign's latest releases.
-      </p>
-
-      <div class="release-pair">
-        <article class="music-release">
-          <a class="music-cover" href="#" aria-label="Explore Intoxicated">
-            <img src="./intoxicated-cover.png" alt="Intoxicated — Nova Reign">
-            <span class="cover-hover">Explore Release <b>→</b></span>
-          </a>
-          <div class="music-meta">
-            <div>
-              <div class="music-type">Single</div>
-              <h3>Intoxicated</h3>
-              <p>Nova Reign</p>
-            </div>
-            <a class="music-arrow" href="#" aria-label="View Intoxicated">↗</a>
-          </div>
-        </article>
-
-        <article class="music-release">
-          <a class="music-cover" href="#" aria-label="Explore No Innocence">
-            <img src="./no-innocence-cover.png" alt="No Innocence — Nova Reign">
-            <span class="cover-hover">Explore Release <b>→</b></span>
-          </a>
-          <div class="music-meta">
-            <div>
-              <div class="music-type">Single</div>
-              <h3>No Innocence</h3>
-              <p>Nova Reign</p>
-            </div>
-            <a class="music-arrow" href="#" aria-label="View No Innocence">↗</a>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="world" id="world">
-      <div class="world-intro">
-        <div class="section-kicker">Nova Reign World</div>
-        <h2 class="section-title">More Than Music.<br><span class="gold">A Whole World.</span></h2>
-        <p>
-          Nova Reign is a recording artist, entrepreneur, model, and digital influencer
-          building a world where music, luxury lifestyle, family, creativity, and business collide.
-        </p>
-      </div>
-
-      <div class="world-grid">
-        <a class="world-card world-card--music" href="#music">
-          <span class="world-image" aria-hidden="true"></span>
-          <span class="number">01</span>
-          <span class="world-content">
-            <h3>Music</h3>
-            <p>R&amp;B, hip-hop, dancehall and cinematic late-night energy.</p>
-            <span class="world-explore">Explore <b>→</b></span>
-          </span>
-        </a>
-        <a class="world-card world-card--lifestyle" href="#gallery">
-          <span class="world-image" aria-hidden="true"></span>
-          <span class="number">02</span>
-          <span class="world-content">
-            <h3>Lifestyle</h3>
-            <p>Fashion, beauty, luxury, experiences and the life behind the image.</p>
-            <span class="world-explore">Explore <b>→</b></span>
-          </span>
-        </a>
-        <a class="world-card world-card--meta" href="#">
-          <span class="world-image" aria-hidden="true"></span>
-          <span class="number">03</span>
-          <span class="world-content">
-            <h3>Meta Baddies</h3>
-            <p>AI. Personalities. Drama. Entertainment.</p>
-            <span class="world-explore">Explore <b>→</b></span>
-          </span>
-        </a>
-        <a class="world-card world-card--vorthx" href="#">
-          <span class="world-image" aria-hidden="true"></span>
-          <span class="number">04</span>
-          <span class="world-content">
-            <h3>Vorthx</h3>
-            <p>The production world behind the vision.</p>
-            <span class="world-explore">Explore <b>→</b></span>
-          </span>
-        </a>
-      </div>
-    </section>
-
-    <section class="about" id="about">
-      <div class="about-grid">
-        <div>
-          <div class="section-kicker">The Woman Behind The World</div>
-          <h2 class="section-title">Meet<br><span class="gold">Nova.</span></h2>
-        </div>
-        <div class="about-copy">
-          <p>
-            Nova Reign is a multifaceted recording artist, entrepreneur, model, and digital
-            influencer whose world blends music, luxury lifestyle, family, fashion, business,
-            and storytelling.
-          </p>
-          <p>
-            Born and raised in New York, Nova brings a bold New York energy to everything she
-            creates while building a global identity of her own.
-          </p>
-          <div class="about-quote">Love your life. Build your legacy.</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="shows" id="shows">
-      <div class="section-kicker">Upcoming</div>
-      <h2 class="section-title">Shows + <span class="gold">Productions</span></h2>
-      <p class="shows-intro">Nova Reign’s world extends beyond music.</p>
-
-      <div class="production-list">
-
-        <article class="production-row">
-          <div class="production-index">01</div>
-          <div class="production-copy">
-            <div class="section-kicker">AI Reality Competition Series</div>
-            <h3>Meta Baddies</h3>
-            <h4>AI. Personalities. Drama. Entertainment.</h4>
-            <p>
-              Follow Meta Baddies for upcoming episodes, characters, announcements,
-              behind-the-scenes content, and the expanding Meta Baddies universe.
-            </p>
-            <div class="production-link-label">Meta Baddies Instagram:</div>
-            <a class="production-link"
-               href="https://www.instagram.com/metabaddies.ai/"
-               target="_blank"
-               rel="noopener noreferrer">
-              Instagram <span>↗</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="production-row">
-          <div class="production-index">02</div>
-          <div class="production-copy">
-            <div class="section-kicker">AI Studio</div>
-            <h3>Vorthx AI Studio</h3>
-            <h4>The production world behind the vision.</h4>
-            <p>
-              Follow VORTHX AI Studio for productions, visual storytelling, AI entertainment,
-              music visuals, show development, and upcoming projects.
-            </p>
-            <div class="production-link-label">Vorthx AI Studio YouTube:</div>
-            <a class="production-link"
-               href="https://www.youtube.com/@vorthx.aistudio"
-               target="_blank"
-               rel="noopener noreferrer">
-              YouTube <span>↗</span>
-            </a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <section class="gallery" id="gallery">
-      <div class="gallery-head">
-        <div>
-          <div class="section-kicker">The Archive</div>
-          <h2 class="section-title">Nova <span class="gold">Gallery</span></h2>
-        </div>
-        <a class="btn" href="#">View Gallery →</a>
-      </div>
-
-      <div class="gallery-grid">
-        <a class="gallery-tile g1" href="#"><img src="nova-reign-hero.png" alt="Nova Reign portrait"></a>
-        <a class="gallery-tile g2" href="#"><img src="nova-reign-hero.png" alt="Nova Reign editorial"></a>
-        <a class="gallery-tile g3" href="#"><img src="nova-reign-hero.png" alt="Nova Reign lifestyle"></a>
-        <a class="gallery-tile g4" href="#"><img src="nova-reign-hero.png" alt="Nova Reign world"></a>
-      </div>
-    </section>
-
-    <section class="connect" id="connect">
-      <div class="section-kicker">Stay Connected</div>
-      <h2 class="section-title">Join Nova's <span class="gold">World.</span></h2>
-      <p>New music, exclusive content, announcements and more.</p>
-
-      <form class="newsletter" onsubmit="return false;">
-        <input type="email" placeholder="Enter your email address" aria-label="Email address">
-        <button type="submit">Join</button>
-      </form>
-    </section>
-
-  </main>
-
-  <footer id="shop">
-    <div class="footer-top">
-      <div class="footer-brand">NOVA REIGN</div>
-      <div class="footer-links">
-        <a href="#music">Music</a>
-        <a href="#videos">Videos</a>
-        <a href="#shows">Shows</a>
-        <a href="#about">About</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#">Shop</a>
-        <a href="#">Instagram</a>
-        <a href="#">TikTok</a>
-        <a href="#">YouTube</a>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© <span id="year"></span> Nova Reign. All Rights Reserved.</span>
-      <span>Love Your Life. Build Your Legacy.</span>
-    </div>
-  </footer>
-
-  <script>
-    const nav = document.getElementById("siteNav");
-    window.addEventListener("scroll", () => {
-      nav.classList.toggle("scrolled", window.scrollY > 40);
-    });
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
+    </article>
+    <article class="bottom-block">
+      <div class="signature">A Woman.<br>A Vision.<br>A Legacy.</div>
+      <span style="display:block;margin-top:7px;font-family:Georgia,serif;font-size:8px;letter-spacing:.2em;color:var(--ivory)">NOVA REIGN</span>
+    </article>
+  </section>
+</main>
 </body>
 </html>
+
